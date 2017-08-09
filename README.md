@@ -20,7 +20,7 @@ LIBRARY_PATH=$FST/lib:$FST/lib/fst CPLUS_INCLUDE_PATH=$FST/include \
     python setup.py build_ext --inplace
 # or install system wide
 LIBRARY_PATH=$FST/lib:$FST/lib/fst CPLUS_INCLUDE_PATH=$FST/include \
-    sudo python setup.py install
+    sudo -E python setup.py install
 
 # In both case for further usage set LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$FST/lib:$FST/lib/fst:$LD_LIBRARY_PATH
