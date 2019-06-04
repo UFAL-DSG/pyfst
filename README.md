@@ -9,6 +9,7 @@ Documentation: http://pyfst.github.io
 ## Installation
 
 1. Install OpenFst 1.3.4 pached with [c++11 patch from Kaldi](http://www.openfst.org/twiki/pub/FST/FstDownload/openfst-1.3.4.tar.gz)
+or OpenFST 1.4 (tested 2019-06-03)
 2. Install requirements ``sudo pip install --upgrade pyyaml pystache cython``
 3. Build the fork using `setup.py`
 
@@ -16,11 +17,9 @@ Documentation: http://pyfst.github.io
 # Change for your setting needed only if openfst is not in PYTHONPATH
 export FST=your/path/to/openfst  
 # Build it locally
-LIBRARY_PATH=$FST/lib:$FST/lib/fst CPLUS_INCLUDE_PATH=$FST/include \
-    python setup.py build_ext --inplace
+python setup.py build_ext --inplace
 # or install system wide
-LIBRARY_PATH=$FST/lib:$FST/lib/fst CPLUS_INCLUDE_PATH=$FST/include \
-    sudo -E python setup.py install
+[sudo -E] python setup.py install
 
 # In both case for further usage set LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$FST/lib:$FST/lib/fst:$LD_LIBRARY_PATH

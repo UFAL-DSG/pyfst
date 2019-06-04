@@ -36,8 +36,11 @@ class pre_build_ext(build_ext):
 
 
 INC, LIB = [], []
-extra_compile_args = ['-std=c++11']
-extra_link_args = []
+fstdir = os.environ['FST']
+assert os.path.isdir(fstdir)
+assert os.path.isdir(os.path.join(fstdir, 'include'))
+extra_compile_args = ['-std=c++11', '-I{fstdir}/include'.format(fstdir=fstdir)]
+extra_link_args = ['-L{}/lib'.format(fstdir), '-L{}/lib/fst'.format(fstdir)]
 
 if sys.platform == 'darwin':
     extra_compile_args.append('-stdlib=libstdc++')
